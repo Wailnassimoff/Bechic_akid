@@ -3,53 +3,157 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bechic Akid</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#682b43">
+<title>Bechic Akid | بوتيك الأناقة</title>
 <style>
-body{font-family:Arial;background:#fff5f8;color:#402333;margin:0;text-align:center}
-header{background:#8d3159;color:white;padding:25px}
-main{padding:20px}
-.products{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-article{background:white;padding:16px;border-radius:12px;box-shadow:0 2px 8px #ddd}
-.photo{font-size:55px}
-button{background:#8d3159;color:white;border:0;padding:12px;border-radius:8px;cursor:pointer}
-a{color:#8d3159}
-input,textarea{width:90%;padding:12px;margin:8px;border:1px solid #ddd;border-radius:8px}
+:root{--wine:#682b43;--rose:#f7e7ed;--gold:#c5a46a;--ink:#30232a}
+*{box-sizing:border-box}
+body{margin:0;background:#fffafc;color:var(--ink);font-family:Arial,sans-serif}
+header{background:linear-gradient(130deg,#381626,#81405a);color:white;text-align:center;padding:28px 12px}
+.logo{font: bold 32px Georgia,serif;letter-spacing:2px}
+header p{color:#f4dce5}
+nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;padding:14px;background:white;position:sticky;top:0;z-index:3;box-shadow:0 2px 10px #0001}
+nav a{color:var(--wine);text-decoration:none;font-weight:bold}
+.hero{margin:16px;padding:34px 12px;border-radius:18px;text-align:center;background:linear-gradient(135deg,#f4dce5,#fff1df)}
+.hero h1{color:var(--wine);font-size:28px}
+.hero p{line-height:1.8}
+button,.btn{background:var(--wine);color:white;border:0;border-radius:25px;padding:12px 16px;cursor:pointer;text-decoration:none;font-weight:bold}
+section{padding:20px 14px;scroll-margin-top:65px}
+h2{text-align:center;color:var(--wine)}
+.hint{text-align:center;color:#8d737c}
+input,textarea,select{width:100%;padding:13px;margin:7px 0;border:1px solid #ead6df;border-radius:10px;font:inherit;background:white}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.product{background:white;border:1px solid #f0e2e8;border-radius:15px;overflow:hidden;box-shadow:0 3px 12px #682b4310}
+.photo{height:130px;background:var(--rose);display:flex;align-items:center;justify-content:center;font-size:56px}
+.info{padding:12px}
+.info h3{font-size:16px}
+.price{color:var(--wine);font-weight:bold;margin:10px 0}
+.info button{width:100%;font-size:13px;padding:10px 4px}
+.panel{max-width:600px;margin:15px auto;padding:16px;background:white;border-radius:15px;box-shadow:0 3px 15px #682b4310}
+#cart{background:var(--rose);border-radius:10px;padding:12px}
+.item{padding:10px 0;border-bottom:1px solid #eee}
+footer{background:#381626;color:white;text-align:center;padding:25px;line-height:2}
+footer a{color:white;margin:8px}
+small{color:#806d75;line-height:1.8}
+@media(min-width:650px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.photo{height:175px}}
 </style>
 </head>
 <body>
 <header>
-<h1>Bechic Akid</h1>
-<p>أناقتك تبدأ من هنا ✨</p>
+<div class="logo">BECHIC AKID</div>
+<p>أناقتكِ تبدأ من هنا ✨</p>
 </header>
-<main>
-<h2>منتجاتنا</h2>
-<div class="products">
-<article><div class="photo">👠</div><h3>حذاء أنيق</h3><p>3500 دج</p><button onclick="pick('حذاء أنيق')">اطلبي الآن</button></article>
-<article><div class="photo">👜</div><h3>حقيبة نسائية</h3><p>4000 دج</p><button onclick="pick('حقيبة نسائية')">اطلبي الآن</button></article>
-<article><div class="photo">👡</div><h3>صندل نسائي</h3><p>2800 دج</p><button onclick="pick('صندل نسائي')">اطلبي الآن</button></article>
-<article><div class="photo">🥿</div><h3>حذاء يومي</h3><p>3000 دج</p><button onclick="pick('حذاء يومي')">اطلبي الآن</button></article>
+<nav>
+<a href="#home">الرئيسية</a>
+<a href="#products">المنتجات</a>
+<a href="#order">طلبيتي</a>
+<a href="#social">تواصل معنا</a>
+</nav>
+<div class="hero" id="home">
+<p>✦ تشكيلة نسائية مميزة ✦</p>
+<h1>كوني مميزة كل يوم</h1>
+<p>أحذية وحقائب نسائية تجمع بين الأناقة والجمال.</p>
+<a class="btn" href="#products">اكتشفي المنتجات</a>
 </div>
-<h2>تسجيل الطلبية</h2>
-<form onsubmit="order(event)">
-<input id="n" placeholder="الاسم الكامل" required>
-<input id="p" placeholder="رقم الهاتف" required>
-<textarea id="a" placeholder="الولاية والبلدية والعنوان" required></textarea>
-<input id="item" placeholder="المنتج المطلوب" required>
-<button type="submit">إرسال الطلب عبر واتساب</button>
+
+<section id="products">
+<h2>تسوقي مجموعتنا</h2>
+<p class="hint">اختاري القطعة المفضلة لديكِ</p>
+<input id="search" placeholder="🔎 ابحثي عن منتج..." oninput="render()">
+<select id="category" onchange="render()">
+<option value="الكل">كل المنتجات</option>
+<option value="أحذية">أحذية</option>
+<option value="حقائب">حقائب</option>
+</select>
+<div class="grid" id="grid"></div>
+</section>
+
+<section id="order">
+<h2>سلة التسوق والطلبية</h2>
+<div class="panel">
+<div id="cart">عدد المنتجات: <b id="count">0</b></div>
+<div id="items">السلة فارغة.</div>
+<p><b>المجموع: <span id="total">0 دج</span></b></p>
+<form id="orderForm">
+<input id="name" placeholder="الاسم الكامل" required>
+<input id="phone" type="tel" placeholder="رقم الهاتف" required>
+<input id="city" placeholder="الولاية والبلدية" required>
+<textarea id="address" placeholder="عنوان التوصيل بالتفصيل" required></textarea>
+<select id="payment">
+<option>الدفع عند الاستلام</option>
+<option>BaridiMob - تأكيد يدوي مع المتجر</option>
+</select>
+<textarea id="notes" placeholder="المقاس واللون وملاحظات إضافية"></textarea>
+<button type="submit" style="width:100%">إرسال الطلب عبر واتساب</button>
 </form>
+<p><small>الأسعار تجريبية. إرسال الطلبية يفتح واتساب ولا يحفظها في قاعدة بيانات الموقع.</small></p>
+</div>
+</section>
+
+<section id="social">
 <h2>تابعينا على مواقع التواصل</h2>
-<p><a href="https://www.instagram.com/bchic_31/">Instagram: @bchic_31</a></p>
-<p><a href="https://www.tiktok.com/@bechic_31">TikTok: @bechic_31</a></p>
-</main>
-<footer>Bechic Akid ©</footer>
+<div class="panel" style="text-align:center">
+<p><a href="https://www.instagram.com/bchic_31/" target="_blank" rel="noopener">📸 Instagram @bchic_31</a></p>
+<p><a href="https://www.tiktok.com/@bechic_31" target="_blank" rel="noopener">🎵 TikTok @bechic_31</a></p>
+<p><a href="https://www.facebook.com/" target="_blank" rel="noopener">📘 Facebook</a></p>
+</div>
+</section>
+
+<footer>
+<div class="logo">BECHIC AKID</div>
+أناقتكِ، اختياركِ، تميزكِ ✨<br>
+© Bechic Akid
+</footer>
+
 <script>
-function pick(v){document.getElementById('item').value=v}
-function order(e){
-e.preventDefault();
-let m='طلبية Bechic Akid\nالاسم: '+n.value+'\nالهاتف: '+p.value+'\nالعنوان: '+a.value+'\nالمنتج: '+item.value;
-location.href='https://wa.me/213541742905?text='+encodeURIComponent(m);
+const products=[
+{name:"حذاء أنيق",price:3500,cat:"أحذية",emoji:"👠"},
+{name:"حقيبة نسائية",price:4000,cat:"حقائب",emoji:"👜"},
+{name:"صندل نسائي",price:2800,cat:"أحذية",emoji:"👡"},
+{name:"حذاء يومي",price:3000,cat:"أحذية",emoji:"🥿"},
+{name:"حقيبة فاخرة",price:5200,cat:"حقائب",emoji:"👛"},
+{name:"حذاء كلاسيكي",price:4500,cat:"أحذية",emoji:"👢"},
+{name:"حقيبة صغيرة",price:3200,cat:"حقائب",emoji:"👜"},
+{name:"صندل أنيق",price:3500,cat:"أحذية",emoji:"👡"}
+];
+let cart=[];
+const money=n=>n.toLocaleString("fr-DZ")+" دج";
+function render(){
+let q=document.getElementById("search").value.toLowerCase().trim();
+let c=document.getElementById("category").value;
+let list=products.map((p,i)=>({...p,i})).filter(p=>p.name.toLowerCase().includes(q)&&(c==="الكل"||p.cat===c));
+document.getElementById("grid").innerHTML=list.map(p=>`
+<article class="product">
+<div class="photo">${p.emoji}</div>
+<div class="info"><h3>${p.name}</h3><div class="price">${money(p.price)}</div>
+<button onclick="add(${p.i})">أضيفي للسلة +</button></div>
+</article>`).join("")||"<p>لا توجد منتجات.</p>";
 }
+function add(i){cart.push(i);updateCart()}
+function removeItem(n){cart.splice(n,1);updateCart()}
+function updateCart(){
+document.getElementById("count").textContent=cart.length;
+document.getElementById("items").innerHTML=cart.length?cart.map((i,n)=>`
+<div class="item">${products[i].name} — ${money(products[i].price)}
+<button type="button" onclick="removeItem(${n})">حذف</button></div>`).join(""):"السلة فارغة.";
+document.getElementById("total").textContent=money(cart.reduce((s,i)=>s+products[i].price,0));
+}
+document.getElementById("orderForm").addEventListener("submit",function(e){
+e.preventDefault();
+if(!cart.length){alert("أضيفي منتجًا إلى السلة أولًا.");return}
+let list=cart.map(i=>products[i].name+" - "+money(products[i].price)).join("\n");
+let msg="طلبية Bechic Akid\nالاسم: "+document.getElementById("name").value+
+"\nالهاتف: "+document.getElementById("phone").value+
+"\nالولاية والبلدية: "+document.getElementById("city").value+
+"\nالعنوان: "+document.getElementById("address").value+
+"\nالمنتجات:\n"+list+
+"\nالمجموع: "+document.getElementById("total").textContent+
+"\nالدفع: "+document.getElementById("payment").value+
+"\nملاحظات: "+document.getElementById("notes").value;
+window.open("https://wa.me/213541742905?text="+encodeURIComponent(msg),"_blank");
+});
+render();
 </script>
 </body>
 </html>
