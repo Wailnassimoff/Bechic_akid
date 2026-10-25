@@ -1,1 +1,55 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bechic Akid</title>
+<style>
+body{font-family:Arial;background:#fff5f8;color:#402333;margin:0;text-align:center}
+header{background:#8d3159;color:white;padding:25px}
+main{padding:20px}
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+article{background:white;padding:16px;border-radius:12px;box-shadow:0 2px 8px #ddd}
+.photo{font-size:55px}
+button{background:#8d3159;color:white;border:0;padding:12px;border-radius:8px;cursor:pointer}
+a{color:#8d3159}
+input,textarea{width:90%;padding:12px;margin:8px;border:1px solid #ddd;border-radius:8px}
+</style>
+</head>
+<body>
+<header>
+<h1>Bechic Akid</h1>
+<p>أناقتك تبدأ من هنا ✨</p>
+</header>
+<main>
+<h2>منتجاتنا</h2>
+<div class="products">
+<article><div class="photo">👠</div><h3>حذاء أنيق</h3><p>3500 دج</p><button onclick="pick('حذاء أنيق')">اطلبي الآن</button></article>
+<article><div class="photo">👜</div><h3>حقيبة نسائية</h3><p>4000 دج</p><button onclick="pick('حقيبة نسائية')">اطلبي الآن</button></article>
+<article><div class="photo">👡</div><h3>صندل نسائي</h3><p>2800 دج</p><button onclick="pick('صندل نسائي')">اطلبي الآن</button></article>
+<article><div class="photo">🥿</div><h3>حذاء يومي</h3><p>3000 دج</p><button onclick="pick('حذاء يومي')">اطلبي الآن</button></article>
+</div>
+<h2>تسجيل الطلبية</h2>
+<form onsubmit="order(event)">
+<input id="n" placeholder="الاسم الكامل" required>
+<input id="p" placeholder="رقم الهاتف" required>
+<textarea id="a" placeholder="الولاية والبلدية والعنوان" required></textarea>
+<input id="item" placeholder="المنتج المطلوب" required>
+<button type="submit">إرسال الطلب عبر واتساب</button>
+</form>
+<h2>تابعينا على مواقع التواصل</h2>
+<p><a href="https://www.instagram.com/bchic_31/">Instagram: @bchic_31</a></p>
+<p><a href="https://www.tiktok.com/@bechic_31">TikTok: @bechic_31</a></p>
+</main>
+<footer>Bechic Akid ©</footer>
+<script>
+function pick(v){document.getElementById('item').value=v}
+function order(e){
+e.preventDefault();
+let m='طلبية Bechic Akid\nالاسم: '+n.value+'\nالهاتف: '+p.value+'\nالعنوان: '+a.value+'\nالمنتج: '+item.value;
+location.href='https://wa.me/213541742905?text='+encodeURIComponent(m);
+}
+</script>
+</body>
+</html>
